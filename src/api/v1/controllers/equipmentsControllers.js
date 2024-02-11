@@ -10,7 +10,8 @@ export const getAllEquipments = async (req, res) => {
     const errorFound = findError(error.code);
     return res
       .status(errorFound[0].status)
-      .json({ error: errorFound[0].message });p
+      .json({ error: errorFound[0].message });
+    p;
   }
 };
 

@@ -48,7 +48,7 @@ describe("playersPositions controller", () => {
     const payload = {
       players: {
         name: faker.person.firstName("male"),
-        positions_id: faker.number.int({ min: 1, max: 4 })
+        positions_id: faker.number.int({ min: 1, max: 4 }),
       },
     };
     console.log(payload);

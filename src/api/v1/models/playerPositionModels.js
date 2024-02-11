@@ -32,13 +32,13 @@ export const obtainingPlayerPositionsByTeam = async (teamID) => {
 };
 
 //post
-export const creatingTeam = async (teamID,{name, positions_id}) => {
+export const creatingTeam = async (teamID, { name, positions_id }) => {
   const SQLquery = {
     text: `
         INSERT INTO players (name,positions_id,equipments_id) VALUES ($1,$2,$3) RETURNING *;
         `,
-    values: [name,positions_id,teamID]
+    values: [name, positions_id, teamID],
   };
-  const response = await pool.query(SQLquery)
-  return response.rows[0]
+  const response = await pool.query(SQLquery);
+  return response.rows[0];
 };

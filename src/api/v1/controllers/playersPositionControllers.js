@@ -1,7 +1,7 @@
 import {
   obtainingPlayerPosition,
   obtainingPlayerPositionsByTeam,
-  creatingTeam
+  creatingTeam,
 } from "../models/playerPositionModels.js";
 import { findError } from "../utils/utils.js";
 
@@ -34,20 +34,20 @@ export const getAllPlayerPositionByTeam = async (req, res) => {
   }
 };
 
-//post 
-export const createPlayersPositionsByTeam = async (req,res) => {
-try {
-    const {teamID} = req.params;
-   /*  console.log(teamID); */
-    const {name, positions_id} = req.body.players
+//post
+export const createPlayersPositionsByTeam = async (req, res) => {
+  try {
+    const { teamID } = req.params;
+    /*  console.log(teamID); */
+    const { name, positions_id } = req.body.players;
     console.log(name);
-    const createdTeam = await creatingTeam(teamID,{name,positions_id})
-    res.status(201).json({createdTeam})
-} catch (error) {
+    const createdTeam = await creatingTeam(teamID, { name, positions_id });
+    res.status(201).json({ createdTeam });
+  } catch (error) {
     console.log(error);
     const errorFound = findError(error.code);
     return res
       .status(errorFound[0].status)
       .json({ error: errorFound[0].message });
-}
-}
+  }
+};
